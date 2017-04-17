@@ -5,4 +5,8 @@
     <string name="prompt_pass">Mật khẩu</string>
     <string name="action_sign_in">Đăng nhập</string>
     <string name="action_register">Đăng ký</string>
+    <string name="tab_note">Ghi chú</string>
+    <string name="tab_account">Tài khoản</string>
+    <string name="tab_report">Báo cáo</string>
+    <string name="tab_utility">Tiện ích</string>
 </resources>
