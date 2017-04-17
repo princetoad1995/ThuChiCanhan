@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Cost Management</string>
+
+    <string name="prompt_username">Tên đăng nhập</string>
+    <string name="prompt_pass">Mật khẩu</string>
+    <string name="action_sign_in">Đăng nhập</string>
+    <string name="action_register">Đăng ký</string>
 </resources>

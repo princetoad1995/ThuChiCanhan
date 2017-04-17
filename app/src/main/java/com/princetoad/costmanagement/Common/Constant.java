@@ -5,6 +5,11 @@ package com.princetoad.costmanagement.Common;
  */
 
 public class Constant {
+
+    public static class SHARED_PREFERENCE {
+        public static final String REMEMBER = "remember";
+    }
+
     public static class TABLE_ACCOUNT{
         public static final String TABLE_ACCOUNT_NAME = "account";
         public static final String ACCOUNT_ID = "id";
