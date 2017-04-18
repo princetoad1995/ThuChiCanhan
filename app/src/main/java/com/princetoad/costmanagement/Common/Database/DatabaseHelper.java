@@ -7,7 +7,10 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.princetoad.costmanagement.Domain.UserDTO;
+import com.princetoad.costmanagement.Common.Domain.AccountDTO;
+import com.princetoad.costmanagement.Common.Domain.ExpenseDTO;
+import com.princetoad.costmanagement.Common.Domain.TypeExpenseDTO;
+import com.princetoad.costmanagement.Common.Domain.UserDTO;
 
 import java.sql.SQLException;
 
@@ -21,6 +24,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static DatabaseHelper instance;
     private Dao<UserDTO, Integer> mUserDao = null;
+    private Dao<AccountDTO, Integer> mAccountDao = null;
+    private Dao<TypeExpenseDTO, Integer> mTypeExpense = null;
+    private Dao<ExpenseDTO, Integer> mExpense = null;
 
 
     public DatabaseHelper(Context context) {
@@ -42,6 +48,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
             TableUtils.createTable(connectionSource, UserDTO.class);
+            TableUtils.createTable(connectionSource, AccountDTO.class);
+            TableUtils.createTable(connectionSource, TypeExpenseDTO.class);
+            TableUtils.createTable(connectionSource, ExpenseDTO.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -51,6 +60,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
             TableUtils.dropTable(connectionSource, UserDTO.class, true);
+            TableUtils.dropTable(connectionSource, AccountDTO.class, true);
+            TableUtils.dropTable(connectionSource, TypeExpenseDTO.class, true);
+            TableUtils.dropTable(connectionSource, ExpenseDTO.class, true);
             onCreate(database, connectionSource);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,10 +79,42 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return mUserDao;
     }
 
+    /* Account */
+
+    public Dao<AccountDTO, Integer> getAccountDao() throws SQLException {
+        if (mAccountDao == null) {
+            mAccountDao = getDao(AccountDTO.class);
+        }
+
+        return mAccountDao;
+    }
+
+    /* TypeExpense */
+
+    public Dao<TypeExpenseDTO, Integer> getTypeExpenseDao() throws SQLException {
+        if (mTypeExpense == null) {
+            mTypeExpense = getDao(TypeExpenseDTO.class);
+        }
+
+        return mTypeExpense;
+    }
+
+    /* Expense */
+
+    public Dao<ExpenseDTO, Integer> getExpenseDao() throws SQLException {
+        if (mExpense == null) {
+            mExpense = getDao(ExpenseDTO.class);
+        }
+
+        return mExpense;
+    }
+
     @Override
     public void close() {
         mUserDao = null;
-
+        mAccountDao = null;
+        mTypeExpense = null;
+        mExpense = null;
         super.close();
     }
 }

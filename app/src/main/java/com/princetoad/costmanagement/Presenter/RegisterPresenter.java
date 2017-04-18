@@ -1,6 +1,6 @@
 package com.princetoad.costmanagement.Presenter;
 
-import com.princetoad.costmanagement.Domain.UserDTO;
+import com.princetoad.costmanagement.Common.Domain.UserDTO;
 
 /**
  * Created by PRINCE D. TOAD on 4/17/2017.

@@ -1,16 +1,13 @@
 package com.princetoad.costmanagement.ViewImpl;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import com.princetoad.costmanagement.Domain.UserDTO;
+import com.princetoad.costmanagement.Common.Domain.UserDTO;
 import com.princetoad.costmanagement.Presenter.RegisterPresenter;
-import com.princetoad.costmanagement.PresenterImpl.LoginPresenterImpl;
 import com.princetoad.costmanagement.PresenterImpl.RegisterPresenterImpl;
 import com.princetoad.costmanagement.R;
 import com.princetoad.costmanagement.View.RegisterView;

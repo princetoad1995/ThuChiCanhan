@@ -1,6 +1,6 @@
 package com.princetoad.costmanagement.ServiceCallback;
 
-import com.princetoad.costmanagement.Domain.BaseDTO;
+import com.princetoad.costmanagement.Common.Domain.BaseDTO;
 
 /**
  * Created by PRINCE D. TOAD on 4/17/2017.

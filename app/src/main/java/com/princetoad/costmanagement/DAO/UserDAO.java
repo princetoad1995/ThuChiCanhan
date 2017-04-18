@@ -1,6 +1,6 @@
 package com.princetoad.costmanagement.DAO;
 
-import com.princetoad.costmanagement.Domain.UserDTO;
+import com.princetoad.costmanagement.Common.Domain.UserDTO;
 import com.princetoad.costmanagement.ServiceCallback.DataCallback;
 import com.princetoad.costmanagement.ServiceCallback.InfoCallback;
 

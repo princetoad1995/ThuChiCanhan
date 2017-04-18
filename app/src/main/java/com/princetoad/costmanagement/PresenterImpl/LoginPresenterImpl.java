@@ -3,7 +3,7 @@ package com.princetoad.costmanagement.PresenterImpl;
 import com.princetoad.costmanagement.Common.Constant;
 import com.princetoad.costmanagement.DAO.UserDAO;
 import com.princetoad.costmanagement.DAOImpl.UserDAOImpl;
-import com.princetoad.costmanagement.Domain.UserDTO;
+import com.princetoad.costmanagement.Common.Domain.UserDTO;
 import com.princetoad.costmanagement.Presenter.LoginPresenter;
 import com.princetoad.costmanagement.Service.SharedPreferencesService;
 import com.princetoad.costmanagement.ServiceCallback.DataCallback;

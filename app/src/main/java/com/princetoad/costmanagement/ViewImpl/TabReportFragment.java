@@ -29,7 +29,7 @@ public class TabReportFragment extends BaseFragment {
 
     @Override
     protected int setLayout() {
-        return R.layout.fragment_tab_note;
+        return R.layout.fragment_tab_report;
     }
 
     @Override

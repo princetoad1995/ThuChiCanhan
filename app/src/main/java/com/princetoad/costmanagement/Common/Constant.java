@@ -15,6 +15,7 @@ public class Constant {
         public static final String ACCOUNT_ID = "id";
         public static final String ACCOUNT_NAME = "name";
         public static final String ACCOUNT_USER = "user";
+        public static final String ACCOUNT_MONEY = "money";
     }
 
     public static class TABLE_EXPENSE{

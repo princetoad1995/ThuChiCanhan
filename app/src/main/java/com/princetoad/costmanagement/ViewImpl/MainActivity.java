@@ -9,13 +9,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.princetoad.costmanagement.Presenter.MainPresenter;
+import com.princetoad.costmanagement.PresenterImpl.MainPresenterImpl;
 import com.princetoad.costmanagement.R;
+import com.princetoad.costmanagement.View.MainView;
+import com.princetoad.costmanagement.View.ViewBase;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements MainView{
     private FragmentTransaction transaction;
     private LinearLayout tab_note, tab_account, tab_report, tab_utility;
     private ImageView icon_note, icon_account, icon_report, icon_utility;
     private TextView txt_note, txt_account, txt_report, txt_utility;
+    private MainPresenter controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,7 @@ public class MainActivity extends BaseActivity {
         txt_account = (TextView) findViewById(R.id.txt_account);
         txt_report = (TextView) findViewById(R.id.txt_report);
         txt_utility = (TextView) findViewById(R.id.txt_utility);
+        controller = new MainPresenterImpl(MainActivity.this);
 
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_layout, TabNoteFragment.getInstance());

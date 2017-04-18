@@ -1,13 +1,10 @@
 package com.princetoad.costmanagement.DAOImpl;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-
 import com.j256.ormlite.dao.Dao;
 import com.princetoad.costmanagement.Common.Constant;
 import com.princetoad.costmanagement.Common.Database.DatabaseHelper;
 import com.princetoad.costmanagement.DAO.UserDAO;
-import com.princetoad.costmanagement.Domain.UserDTO;
+import com.princetoad.costmanagement.Common.Domain.UserDTO;
 import com.princetoad.costmanagement.ServiceCallback.DataCallback;
 import com.princetoad.costmanagement.ServiceCallback.InfoCallback;
 import com.princetoad.costmanagement.ServiceImpl.SharedPreferencesServiceImpl;

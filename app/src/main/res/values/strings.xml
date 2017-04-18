@@ -9,4 +9,10 @@
     <string name="tab_account">Tài khoản</string>
     <string name="tab_report">Báo cáo</string>
     <string name="tab_utility">Tiện ích</string>
+
+    <string name="expenditure_items">Mục chi</string>
+    <string name="description">Diễn giải</string>
+    <string name="from_account">Từ tài khoản</string>
+    <string name="date">Ngày</string>
+    <string name="write">Ghi</string>
 </resources>

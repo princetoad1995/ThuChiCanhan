@@ -1,10 +1,14 @@
-package com.princetoad.costmanagement.Domain;
+package com.princetoad.costmanagement.Common.Domain;
 
 import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.princetoad.costmanagement.Common.Constant;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by PRINCE D. TOAD on 4/16/2017.
@@ -20,9 +24,13 @@ public class TypeExpenseDTO {
 
     // One-to-many
     @ForeignCollectionField(columnName = Constant.TABLE_TYPE_EXPENSE.TYPE_EXPENSE_EXPENSE, eager = true)
-    private ForeignCollection<ExpenseDTO> expenseDTOs;
+    private Collection<ExpenseDTO> expenseDTOs = new ArrayList<>();
 
     public TypeExpenseDTO() {
+    }
+
+    public TypeExpenseDTO(String name) {
+        this.name = name;
     }
 
     public int getId() {
@@ -41,11 +49,11 @@ public class TypeExpenseDTO {
         this.name = name;
     }
 
-    public ForeignCollection<ExpenseDTO> getExpenseDTOs() {
-        return expenseDTOs;
+    public List<ExpenseDTO> getExpenseDTOs() {
+        return new ArrayList<>(expenseDTOs);
     }
 
-    public void setExpenseDTOs(ForeignCollection<ExpenseDTO> expenseDTOs) {
+    public void setExpenseDTOs(List<ExpenseDTO> expenseDTOs) {
         this.expenseDTOs = expenseDTOs;
     }
 }

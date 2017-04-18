@@ -1,6 +1,6 @@
 package com.princetoad.costmanagement.ServiceCallback;
 
-import com.princetoad.costmanagement.Domain.BaseDTO;
+import com.princetoad.costmanagement.Common.Domain.BaseDTO;
 
 import java.util.ArrayList;
 

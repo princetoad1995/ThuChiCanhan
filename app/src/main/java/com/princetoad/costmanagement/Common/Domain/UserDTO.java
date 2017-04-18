@@ -1,9 +1,13 @@
-package com.princetoad.costmanagement.Domain;
+package com.princetoad.costmanagement.Common.Domain;
 
 import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.princetoad.costmanagement.Common.Constant;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by PRINCE D. TOAD on 4/17/2017.
@@ -21,9 +25,14 @@ public class UserDTO extends BaseDTO {
 
     // One-to-many
     @ForeignCollectionField(columnName = Constant.TABLE_USER.USER_ACCOUNT, eager = true)
-    private ForeignCollection<AccountDTO> expenses;
+    private Collection<AccountDTO> account = new ArrayList<>();
 
     public UserDTO() {
+    }
+
+    public UserDTO(String name, String password) {
+        this.name = name;
+        this.password = password;
     }
 
     public int getId() {
@@ -50,11 +59,11 @@ public class UserDTO extends BaseDTO {
         this.password = password;
     }
 
-    public ForeignCollection<AccountDTO> getExpenses() {
-        return expenses;
+    public List<AccountDTO> getAccount() {
+        return new ArrayList<>(account) ;
     }
 
-    public void setExpenses(ForeignCollection<AccountDTO> expenses) {
-        this.expenses = expenses;
+    public void setAccount(List<AccountDTO> account) {
+        this.account = account;
     }
 }

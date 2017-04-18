@@ -1,4 +1,4 @@
-package com.princetoad.costmanagement.Domain;
+package com.princetoad.costmanagement.Common.Domain;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 @DatabaseTable(tableName = Constant.TABLE_ACCOUNT.TABLE_ACCOUNT_NAME)
-public class AccountDTO implements Serializable{
+public class AccountDTO{
 
     @DatabaseField(generatedId = true, columnName = Constant.TABLE_ACCOUNT.ACCOUNT_ID)
     private int id;
@@ -19,10 +19,19 @@ public class AccountDTO implements Serializable{
     @DatabaseField(columnName = Constant.TABLE_ACCOUNT.ACCOUNT_NAME)
     private String name;
 
+    @DatabaseField(columnName = Constant.TABLE_ACCOUNT.ACCOUNT_MONEY)
+    private long money;
+
     @DatabaseField(columnName = Constant.TABLE_ACCOUNT.ACCOUNT_USER, foreign = true, foreignAutoRefresh = true)
     private UserDTO userDTO;
 
     public AccountDTO() {
+    }
+
+    public AccountDTO(String name, long money, UserDTO userDTO) {
+        this.name = name;
+        this.money = money;
+        this.userDTO = userDTO;
     }
 
     public int getId() {
@@ -47,5 +56,13 @@ public class AccountDTO implements Serializable{
 
     public void setUserDTO(UserDTO userDTO) {
         this.userDTO = userDTO;
+    }
+
+    public long getMoney() {
+        return money;
+    }
+
+    public void setMoney(long money) {
+        this.money = money;
     }
 }

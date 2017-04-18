@@ -2,7 +2,7 @@ package com.princetoad.costmanagement.PresenterImpl;
 
 import com.princetoad.costmanagement.DAO.UserDAO;
 import com.princetoad.costmanagement.DAOImpl.UserDAOImpl;
-import com.princetoad.costmanagement.Domain.UserDTO;
+import com.princetoad.costmanagement.Common.Domain.UserDTO;
 import com.princetoad.costmanagement.Presenter.RegisterPresenter;
 import com.princetoad.costmanagement.ServiceCallback.InfoCallback;
 import com.princetoad.costmanagement.View.RegisterView;

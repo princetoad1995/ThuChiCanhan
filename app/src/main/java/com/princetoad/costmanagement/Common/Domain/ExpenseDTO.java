@@ -1,4 +1,4 @@
-package com.princetoad.costmanagement.Domain;
+package com.princetoad.costmanagement.Common.Domain;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -21,6 +21,11 @@ public class ExpenseDTO {
     private TypeExpenseDTO typeExpenseDTO;
 
     public ExpenseDTO() {
+    }
+
+    public ExpenseDTO(String name, TypeExpenseDTO typeExpenseDTO) {
+        this.name = name;
+        this.typeExpenseDTO = typeExpenseDTO;
     }
 
     public int getId() {
