@@ -54,7 +54,8 @@ public class ChooseExpenseActivity extends BaseActivity implements ChooseExpense
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 Intent i = new Intent(ChooseExpenseActivity.this, MainActivity.class);
-                i.putExtra("expense", listTypeExpense.get(groupPosition).getName() + "");
+                i.putExtra("expense", listTypeExpense.get(groupPosition));
+                i.putExtra("type", 1);
                 setResult(Constant.INTENT.RESULT_CODE_EXPENSE, i);
                 finish();
                 controller.resetCheck();
@@ -66,7 +67,8 @@ public class ChooseExpenseActivity extends BaseActivity implements ChooseExpense
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Intent i = new Intent(ChooseExpenseActivity.this, MainActivity.class);
-                i.putExtra("expense", listExpense.get(listTypeExpense.get(groupPosition)).get(childPosition).getName() + "");
+                i.putExtra("expense", listExpense.get(listTypeExpense.get(groupPosition)).get(childPosition));
+                i.putExtra("type", 2);
                 setResult(Constant.INTENT.RESULT_CODE_EXPENSE, i);
                 finish();
                 controller.resetCheck();

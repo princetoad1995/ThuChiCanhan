@@ -9,6 +9,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.princetoad.costmanagement.Common.Domain.AccountDTO;
 import com.princetoad.costmanagement.Common.Domain.ExpenseDTO;
+import com.princetoad.costmanagement.Common.Domain.ManageDTO;
 import com.princetoad.costmanagement.Common.Domain.TypeExpenseDTO;
 import com.princetoad.costmanagement.Common.Domain.UserDTO;
 
@@ -27,6 +28,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<AccountDTO, Integer> mAccountDao = null;
     private Dao<TypeExpenseDTO, Integer> mTypeExpense = null;
     private Dao<ExpenseDTO, Integer> mExpense = null;
+    private Dao<ManageDTO, Integer> mManage = null;
 
 
     public DatabaseHelper(Context context) {
@@ -51,6 +53,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, AccountDTO.class);
             TableUtils.createTable(connectionSource, TypeExpenseDTO.class);
             TableUtils.createTable(connectionSource, ExpenseDTO.class);
+            TableUtils.createTable(connectionSource, ManageDTO.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -63,6 +66,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, AccountDTO.class, true);
             TableUtils.dropTable(connectionSource, TypeExpenseDTO.class, true);
             TableUtils.dropTable(connectionSource, ExpenseDTO.class, true);
+            TableUtils.dropTable(connectionSource, ManageDTO.class, true);
             onCreate(database, connectionSource);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -101,12 +105,22 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     /* Expense */
 
-    public Dao<ExpenseDTO, Integer> getExpenseDao() throws SQLException {
-        if (mExpense == null) {
-            mExpense = getDao(ExpenseDTO.class);
+        public Dao<ExpenseDTO, Integer> getExpenseDao() throws SQLException {
+            if (mExpense == null) {
+                mExpense = getDao(ExpenseDTO.class);
+            }
+
+            return mExpense;
+    }
+
+    /* Mange */
+
+    public Dao<ManageDTO, Integer> getManageDao() throws SQLException {
+        if (mManage == null) {
+            mManage = getDao(ManageDTO.class);
         }
 
-        return mExpense;
+        return mManage;
     }
 
     @Override
@@ -115,6 +129,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         mAccountDao = null;
         mTypeExpense = null;
         mExpense = null;
+        mManage = null;
         super.close();
     }
 }

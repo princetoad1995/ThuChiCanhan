@@ -50,7 +50,7 @@ public class ChooseAccountActivity extends BaseActivity implements ChooseAccount
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ChooseAccountActivity.this, MainActivity.class);
-                intent.putExtra("name_account", accountDTOs.get(position).getName());
+                intent.putExtra("account", accountDTOs.get(position));
                 setResult(Constant.INTENT.RESULT_CODE_ACCOUNT, intent);
                 finish();
             }

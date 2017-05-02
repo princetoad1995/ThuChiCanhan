@@ -12,6 +12,10 @@ import android.widget.Toast;
 import com.github.jjobes.slidedatetimepicker.SlideDateTimeListener;
 import com.github.jjobes.slidedatetimepicker.SlideDateTimePicker;
 import com.princetoad.costmanagement.Common.Constant;
+import com.princetoad.costmanagement.Common.Domain.AccountDTO;
+import com.princetoad.costmanagement.Common.Domain.ExpenseDTO;
+import com.princetoad.costmanagement.Common.Domain.TypeExpenseDTO;
+import com.princetoad.costmanagement.Common.Domain.UserDTO;
 import com.princetoad.costmanagement.Common.Utils.DateTimeUtils;
 import com.princetoad.costmanagement.Presenter.TabNotePresenter;
 import com.princetoad.costmanagement.PresenterImpl.TabNotePresenterImpl;
@@ -31,22 +35,26 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
     private TextView txt_from_account, txt_hour, txt_date, txt_content_des, txt_content_expense;
     private Button btn_tab_note;
     private TabNotePresenter controller;
-    private SimpleDateFormat mFormatter = new SimpleDateFormat("MMMM dd yyyy hh:mm aa");
+    private AccountDTO accountDTO;
+    private TypeExpenseDTO typeExpenseDTO;
+    private ExpenseDTO expenseDTO;
+    private UserDTO userDTO;
+    private String date_manager = "";
+    private SimpleDateFormat mFormatter = new SimpleDateFormat("hh:mm dd/MM/yyyy");
     private SlideDateTimeListener listener = new SlideDateTimeListener() {
 
         @Override
-        public void onDateTimeSet(Date date)
-        {
-            Toast.makeText(getContext(),
-                    mFormatter.format(date), Toast.LENGTH_SHORT).show();
+        public void onDateTimeSet(Date date) {
+
+            txt_hour.setText(mFormatter.format(date));
+            txt_date.setVisibility(View.GONE);
+            String[] words = mFormatter.format(date).split("\\s");
+            date_manager = words[words.length-1];
         }
 
         // Optional cancel listener
         @Override
-        public void onDateTimeCancel()
-        {
-            Toast.makeText(getContext(),
-                    "Canceled", Toast.LENGTH_SHORT).show();
+        public void onDateTimeCancel() {
         }
     };
 
@@ -59,6 +67,11 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
 
     @Override
     protected void init(View v) {
+        accountDTO = new AccountDTO();
+        typeExpenseDTO = new TypeExpenseDTO();
+        expenseDTO = new ExpenseDTO();
+        userDTO = new UserDTO();
+
         controller = new TabNotePresenterImpl(TabNoteFragment.this);
         tab_note_expense = (RelativeLayout) v.findViewById(R.id.tab_note_expense);
         tab_note_description = (RelativeLayout) v.findViewById(R.id.tab_note_description);
@@ -117,6 +130,13 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
                         .show();
             }
         });
+
+        btn_tab_note.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.onSaveEvent(userDTO, "100000", expenseDTO, typeExpenseDTO, txt_content_des.getText().toString(), accountDTO, date_manager);
+            }
+        });
     }
 
     @Override
@@ -135,9 +155,28 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
         if (requestCode == Constant.INTENT.REQUEST_CODE_DESCRIPTION && resultCode == Constant.INTENT.RESULT_CODE_DESCRIPTION && data != null){
             txt_content_des.setText(data.getSerializableExtra("des") + "");
         } else if (requestCode == Constant.INTENT.REQUEST_CODE_ACCOUNT && resultCode == Constant.INTENT.RESULT_CODE_ACCOUNT && data != null){
-            txt_from_account.setText(data.getSerializableExtra("name_account") + "");
+            accountDTO = (AccountDTO) data.getSerializableExtra("account");
+            txt_from_account.setText(accountDTO.getName());
         } else if (requestCode == Constant.INTENT.REQUEST_CODE_EXPENSE && resultCode == Constant.INTENT.RESULT_CODE_EXPENSE && data != null){
-            txt_content_expense.setText(data.getSerializableExtra("expense") + "");
+            if ((int) data.getSerializableExtra("type") == 1){
+                typeExpenseDTO = (TypeExpenseDTO) data.getSerializableExtra("expense");
+                txt_content_expense.setText(typeExpenseDTO.getName());
+            } else if ((int) data.getSerializableExtra("type") == 2){
+                expenseDTO = (ExpenseDTO) data.getSerializableExtra("expense");
+                txt_content_expense.setText(expenseDTO.getName());
+            }
+
         }
+    }
+
+
+    @Override
+    public void onSuccess() {
+        Toast.makeText(getContext(), "Lưu thành công", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setUser(UserDTO userDTO) {
+        this.userDTO = userDTO;
     }
 }

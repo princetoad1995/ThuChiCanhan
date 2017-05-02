@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 @DatabaseTable(tableName = Constant.TABLE_ACCOUNT.TABLE_ACCOUNT_NAME)
-public class AccountDTO{
+public class AccountDTO extends BaseDTO{
 
     @DatabaseField(generatedId = true, columnName = Constant.TABLE_ACCOUNT.ACCOUNT_ID)
     private int id;

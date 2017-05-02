@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 @DatabaseTable(tableName = Constant.TABLE_TYPE_EXPENSE.TABLE_TYPE_EXPENSE_NAME)
-public class TypeExpenseDTO {
+public class TypeExpenseDTO extends BaseDTO{
     @DatabaseField(generatedId = true, columnName = Constant.TABLE_TYPE_EXPENSE.TYPE_EXPENSE_ID)
     private int id;
 
@@ -28,6 +28,10 @@ public class TypeExpenseDTO {
     // One-to-many
     @ForeignCollectionField(columnName = Constant.TABLE_TYPE_EXPENSE.TYPE_EXPENSE_EXPENSE, eager = true)
     private Collection<ExpenseDTO> expenseDTOs = new ArrayList<>();
+
+    // One-to-many
+    @ForeignCollectionField(columnName = Constant.TABLE_TYPE_EXPENSE.TYPE_EXPENSE_MANAGE, eager = true)
+    private Collection<ManageDTO> manage = new ArrayList<>();
 
     public TypeExpenseDTO() {
     }
