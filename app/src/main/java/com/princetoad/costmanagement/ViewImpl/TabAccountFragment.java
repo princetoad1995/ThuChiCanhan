@@ -2,15 +2,30 @@ package com.princetoad.costmanagement.ViewImpl;
 
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import com.princetoad.costmanagement.Adapter.ListChooseAccountAdapter;
+import com.princetoad.costmanagement.Common.Domain.AccountDTO;
+import com.princetoad.costmanagement.Presenter.TabAccountPresenter;
+import com.princetoad.costmanagement.PresenterImpl.TabAccountPresenterImpl;
 import com.princetoad.costmanagement.R;
+import com.princetoad.costmanagement.View.TabAccountView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by PRINCE D. TOAD on 4/11/2017.
  */
 
-public class TabAccountFragment extends BaseFragment {
+public class TabAccountFragment extends BaseFragment implements TabAccountView{
     private static Fragment instance;
+    private List<AccountDTO> accountDTOs;
+    private ListView listView;
+    private ListChooseAccountAdapter adapter;
+    private TabAccountPresenter controller;
+    private TextView total_money;
 
     public static Fragment getInstance() {
         if (instance == null)
@@ -21,6 +36,11 @@ public class TabAccountFragment extends BaseFragment {
 
     @Override
     protected void init(View v) {
+        setToolbar("Tài khoản", v);
+        listView = (ListView) v.findViewById(R.id.list_account);
+        accountDTOs = new ArrayList<>();
+        controller = new TabAccountPresenterImpl(TabAccountFragment.this);
+        total_money = (TextView) v.findViewById(R.id.total_money);
     }
 
     @Override
@@ -35,5 +55,17 @@ public class TabAccountFragment extends BaseFragment {
     @Override
     public void toastMessage(String message) {
 
+    }
+
+    @Override
+    public void setListAccount(List<AccountDTO> list) {
+        this.accountDTOs = list;
+        adapter = new ListChooseAccountAdapter(getContext(), (ArrayList<AccountDTO>) accountDTOs);
+        listView.setAdapter(adapter);
+    }
+
+    @Override
+    public void setTotalMoney(int total) {
+        total_money.setText("Tổng tiền còn: " + total + " đ");
     }
 }

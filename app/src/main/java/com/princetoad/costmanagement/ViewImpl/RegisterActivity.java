@@ -39,7 +39,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView{
             public void onClick(View v) {
                 UserDTO user = new UserDTO();
                 user.setName(username.getText().toString());
-                user.setPassword(username.getText().toString());
+                user.setPassword(password.getText().toString());
                 controller.onRegisterEvent(user);
             }
         });

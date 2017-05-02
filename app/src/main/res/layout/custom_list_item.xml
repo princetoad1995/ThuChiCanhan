@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff">
+    <TextView
+        android:id="@+id/lblListItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/img_check"
+        android:textSize="17dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginLeft="35dp"
+        android:textColor="#000"/>
+
+    <ImageView
+        android:id="@+id/img_check_child"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="18dp"
+        android:src="@drawable/ic_checked"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

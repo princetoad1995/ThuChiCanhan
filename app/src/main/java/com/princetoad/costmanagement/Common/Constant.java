@@ -10,12 +10,24 @@ public class Constant {
         public static final String REMEMBER = "remember";
     }
 
+    public static class INTENT{
+        public static final int REQUEST_CODE_DESCRIPTION = 1;
+        public static final int RESULT_CODE_DESCRIPTION = 2;
+
+        public static final int REQUEST_CODE_ACCOUNT = 3;
+        public static final int RESULT_CODE_ACCOUNT = 4;
+
+        public static final int REQUEST_CODE_EXPENSE = 5;
+        public static final int RESULT_CODE_EXPENSE = 6;
+    }
+
     public static class TABLE_ACCOUNT{
         public static final String TABLE_ACCOUNT_NAME = "account";
         public static final String ACCOUNT_ID = "id";
         public static final String ACCOUNT_NAME = "name";
         public static final String ACCOUNT_USER = "user";
         public static final String ACCOUNT_MONEY = "money";
+        public static final String ACCOUNT_CHECK = "check";
     }
 
     public static class TABLE_EXPENSE{
@@ -23,6 +35,7 @@ public class Constant {
         public static final String EXPENSE_ID = "id";
         public static final String EXPENSE_NAME = "name";
         public static final String EXPENSE_TYPE_EXPENSE = "expenseType";
+        public static final String EXPENSE_CHECK = "check";
     }
 
     public static class TABLE_TYPE_EXPENSE{
@@ -30,6 +43,7 @@ public class Constant {
         public static final String TYPE_EXPENSE_ID = "id";
         public static final String TYPE_EXPENSE_NAME = "name";
         public static final String TYPE_EXPENSE_EXPENSE = "expense";
+        public static final String TYPE_EXPENSE_CHECK = "check";
     }
 
     public static class TABLE_USER{

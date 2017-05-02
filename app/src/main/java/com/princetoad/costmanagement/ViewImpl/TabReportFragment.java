@@ -21,6 +21,7 @@ public class TabReportFragment extends BaseFragment {
 
     @Override
     protected void init(View v) {
+        setToolbar("Báo cáo", v);
     }
 
     @Override

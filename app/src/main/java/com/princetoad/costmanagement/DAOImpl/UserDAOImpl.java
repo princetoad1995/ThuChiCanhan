@@ -1,5 +1,7 @@
 package com.princetoad.costmanagement.DAOImpl;
 
+import android.util.Log;
+
 import com.j256.ormlite.dao.Dao;
 import com.princetoad.costmanagement.Common.Constant;
 import com.princetoad.costmanagement.Common.Database.DatabaseHelper;
@@ -41,6 +43,7 @@ public class UserDAOImpl implements UserDAO{
                     .and()
                     .eq(Constant.TABLE_USER.USER_PASS, password)
                     .query();
+            Log.e("pass", password);
             if (list.size() != 0)
                 user = list.get(0);
             else

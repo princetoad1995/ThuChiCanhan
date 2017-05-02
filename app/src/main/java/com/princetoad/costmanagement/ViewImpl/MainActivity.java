@@ -1,5 +1,6 @@
 package com.princetoad.costmanagement.ViewImpl;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -124,5 +125,10 @@ public class MainActivity extends BaseActivity implements MainView{
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

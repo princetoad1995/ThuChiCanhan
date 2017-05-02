@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.princetoad.costmanagement.R;
@@ -23,6 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewBase
 
     private ProgressDialogImpl pDialog = null;
     protected Toolbar toolbar;
+    protected ImageView btn_info_back_toolbar;
 
     public void showLoadingDialog(String title) {
         pDialog.showLoadingDialog(title);
@@ -48,7 +51,6 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewBase
         super.onCreate(savedInstanceState);
         pDialog = new ProgressDialogImpl(this);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-//        setToolbar("HQH");
     }
 
     public void showMessage(String message) {
@@ -62,6 +64,19 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewBase
                     }
                 });
         alertDialog.show();
+    }
+
+    public void setToolbar(String s){
+        btn_info_back_toolbar = (ImageView) findViewById(R.id.btn_info_back_toolbar);
+        TextView title_toolbar = (TextView) findViewById(R.id.title_toolbar);
+
+        btn_info_back_toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        title_toolbar.setText(s);
     }
 
 }

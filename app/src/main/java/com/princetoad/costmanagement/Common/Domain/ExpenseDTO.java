@@ -16,6 +16,9 @@ public class ExpenseDTO {
     @DatabaseField(columnName = Constant.TABLE_EXPENSE.EXPENSE_NAME)
     private String name;
 
+    @DatabaseField(columnName = Constant.TABLE_EXPENSE.EXPENSE_CHECK)
+    private int check;
+
     // One-to-many
     @DatabaseField(columnName = Constant.TABLE_EXPENSE.EXPENSE_TYPE_EXPENSE, foreign = true, foreignAutoRefresh = true)
     private TypeExpenseDTO typeExpenseDTO;
@@ -25,6 +28,12 @@ public class ExpenseDTO {
 
     public ExpenseDTO(String name, TypeExpenseDTO typeExpenseDTO) {
         this.name = name;
+        this.typeExpenseDTO = typeExpenseDTO;
+    }
+
+    public ExpenseDTO(String name, int check, TypeExpenseDTO typeExpenseDTO) {
+        this.name = name;
+        this.check = check;
         this.typeExpenseDTO = typeExpenseDTO;
     }
 
@@ -42,6 +51,14 @@ public class ExpenseDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getCheck() {
+        return check;
+    }
+
+    public void setCheck(int check) {
+        this.check = check;
     }
 
     public TypeExpenseDTO getTypeExpenseDTO() {

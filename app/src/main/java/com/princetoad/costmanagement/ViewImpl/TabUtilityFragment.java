@@ -21,6 +21,7 @@ public class TabUtilityFragment extends BaseFragment {
 
     @Override
     protected void init(View v) {
+        setToolbar("Tiện ích", v);
     }
 
     @Override

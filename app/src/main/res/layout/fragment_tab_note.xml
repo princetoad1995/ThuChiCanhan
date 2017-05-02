@@ -4,23 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/colorPrimary"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/tab_note"
-            android:textAllCaps="true"
-            android:textColor="#fff"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-    </LinearLayout>
+    <include
+        layout="@layout/tool_bar" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,13 +57,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/border_radius_gray"
-                android:orientation="horizontal"
                 android:padding="10dp">
 
                 <TextView
                     android:id="@+id/txt_title1"
                     style="@style/style_tab_note_text"
                     android:text="@string/expenditure_items" />
+
+                <TextView
+                    android:id="@+id/txt_content_expense"
+                    android:text=""
+                    style="@style/style_tab_note_content_text"
+                    android:layout_toLeftOf="@+id/img1"
+                    android:layout_toRightOf="@+id/txt_title1"
+                    android:gravity="end"/>
 
                 <ImageView
                     android:id="@+id/img1"
@@ -100,6 +92,14 @@
                     android:id="@+id/txt_title2"
                     style="@style/style_tab_note_text"
                     android:text="@string/description" />
+
+                <TextView
+                    android:id="@+id/txt_content_des"
+                    android:text=""
+                    style="@style/style_tab_note_content_text"
+                    android:layout_toLeftOf="@+id/img2"
+                    android:layout_toRightOf="@+id/txt_title2"
+                    android:gravity="end"/>
 
                 <ImageView
                     android:id="@+id/img2"
@@ -132,14 +132,14 @@
                     android:id="@+id/txt_from_account"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ví"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:textSize="20sp"
-                    android:textColor="#000"
-                    android:textStyle="bold"
                     android:layout_toLeftOf="@+id/img3"
-                    android:layout_toStartOf="@+id/img3" />
+                    android:layout_toStartOf="@+id/img3"
+                    android:text="Ví"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/img3"
@@ -166,27 +166,27 @@
                     android:id="@+id/txt_hour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="08:52"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:textSize="20sp"
-                    android:textColor="#000"
-                    android:textStyle="bold"
                     android:layout_toLeftOf="@+id/txt_date"
-                    android:layout_toStartOf="@+id/txt_date" />
+                    android:layout_toStartOf="@+id/txt_date"
+                    android:text="08:52"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txt_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hôm nay"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:textSize="20sp"
-                    android:textColor="#000"
-                    android:textStyle="bold"
                     android:layout_toLeftOf="@+id/img4"
-                    android:layout_toStartOf="@+id/img4" />
+                    android:layout_toStartOf="@+id/img4"
+                    android:text="Hôm nay"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/img4"

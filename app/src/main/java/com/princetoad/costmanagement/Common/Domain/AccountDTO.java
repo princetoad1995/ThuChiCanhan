@@ -22,15 +22,19 @@ public class AccountDTO{
     @DatabaseField(columnName = Constant.TABLE_ACCOUNT.ACCOUNT_MONEY)
     private long money;
 
+    @DatabaseField(columnName = Constant.TABLE_ACCOUNT.ACCOUNT_CHECK)
+    private int checked;
+
     @DatabaseField(columnName = Constant.TABLE_ACCOUNT.ACCOUNT_USER, foreign = true, foreignAutoRefresh = true)
     private UserDTO userDTO;
 
     public AccountDTO() {
     }
 
-    public AccountDTO(String name, long money, UserDTO userDTO) {
+    public AccountDTO(String name, long money, int checked, UserDTO userDTO) {
         this.name = name;
         this.money = money;
+        this.checked = checked;
         this.userDTO = userDTO;
     }
 
@@ -64,5 +68,13 @@ public class AccountDTO{
 
     public void setMoney(long money) {
         this.money = money;
+    }
+
+    public int getChecked() {
+        return checked;
+    }
+
+    public void setChecked(int checked) {
+        this.checked = checked;
     }
 }

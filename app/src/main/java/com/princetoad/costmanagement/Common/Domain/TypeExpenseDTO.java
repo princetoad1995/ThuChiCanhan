@@ -22,6 +22,9 @@ public class TypeExpenseDTO {
     @DatabaseField(columnName = Constant.TABLE_TYPE_EXPENSE.TYPE_EXPENSE_NAME)
     private String name;
 
+    @DatabaseField(columnName = Constant.TABLE_TYPE_EXPENSE.TYPE_EXPENSE_CHECK)
+    private int check;
+
     // One-to-many
     @ForeignCollectionField(columnName = Constant.TABLE_TYPE_EXPENSE.TYPE_EXPENSE_EXPENSE, eager = true)
     private Collection<ExpenseDTO> expenseDTOs = new ArrayList<>();
@@ -31,6 +34,11 @@ public class TypeExpenseDTO {
 
     public TypeExpenseDTO(String name) {
         this.name = name;
+    }
+
+    public TypeExpenseDTO(String name, int check) {
+        this.name = name;
+        this.check = check;
     }
 
     public int getId() {
@@ -47,6 +55,14 @@ public class TypeExpenseDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getCheck() {
+        return check;
+    }
+
+    public void setCheck(int check) {
+        this.check = check;
     }
 
     public List<ExpenseDTO> getExpenseDTOs() {

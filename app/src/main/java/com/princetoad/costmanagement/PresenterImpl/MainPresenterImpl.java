@@ -51,126 +51,126 @@ public class MainPresenterImpl implements MainPresenter {
 
     public void addAccount() {
         UserDTO user = (UserDTO) service.getObject(Constant.SHARED_PREFERENCE.REMEMBER, UserDTO.class);
-        AccountDTO account1 = new AccountDTO("Ví", 0, user);
+        AccountDTO account1 = new AccountDTO("Ví", 0, 0, user);
         accountDAO.addAccount(account1);
-        AccountDTO account2 = new AccountDTO("ATM", 0, user);
+        AccountDTO account2 = new AccountDTO("ATM", 0, 0, user);
         accountDAO.addAccount(account2);
     }
 
     public void addTypeExpense() {
-        TypeExpenseDTO typeExpense = new TypeExpenseDTO("Ăn uống");
+        TypeExpenseDTO typeExpense = new TypeExpenseDTO("Ăn uống", 0);
         typeExpenseDAO.addTypeExpense(typeExpense);
-        TypeExpenseDTO typeExpense2 = new TypeExpenseDTO("Dịch vụ sinh hoạt");
+        TypeExpenseDTO typeExpense2 = new TypeExpenseDTO("Dịch vụ sinh hoạt", 0);
         typeExpenseDAO.addTypeExpense(typeExpense2);
-        TypeExpenseDTO typeExpense3 = new TypeExpenseDTO("Đi lại");
+        TypeExpenseDTO typeExpense3 = new TypeExpenseDTO("Đi lại", 0);
         typeExpenseDAO.addTypeExpense(typeExpense3);
-        TypeExpenseDTO typeExpense4 = new TypeExpenseDTO("Trang phục");
+        TypeExpenseDTO typeExpense4 = new TypeExpenseDTO("Trang phục", 0);
         typeExpenseDAO.addTypeExpense(typeExpense4);
-        TypeExpenseDTO typeExpense5 = new TypeExpenseDTO("Hưởng thụ");
+        TypeExpenseDTO typeExpense5 = new TypeExpenseDTO("Hưởng thụ", 0);
         typeExpenseDAO.addTypeExpense(typeExpense5);
-        TypeExpenseDTO typeExpense6 = new TypeExpenseDTO("Con cái");
+        TypeExpenseDTO typeExpense6 = new TypeExpenseDTO("Con cái", 0);
         typeExpenseDAO.addTypeExpense(typeExpense6);
-        TypeExpenseDTO typeExpense7 = new TypeExpenseDTO("Hiếu hỉ");
+        TypeExpenseDTO typeExpense7 = new TypeExpenseDTO("Hiếu hỉ", 0);
         typeExpenseDAO.addTypeExpense(typeExpense7);
-        TypeExpenseDTO typeExpense8 = new TypeExpenseDTO("Sức khỏe");
+        TypeExpenseDTO typeExpense8 = new TypeExpenseDTO("Sức khỏe", 0);
         typeExpenseDAO.addTypeExpense(typeExpense8);
-        TypeExpenseDTO typeExpense9 = new TypeExpenseDTO("Nhà cửa");
+        TypeExpenseDTO typeExpense9 = new TypeExpenseDTO("Nhà cửa", 0);
         typeExpenseDAO.addTypeExpense(typeExpense9);
-        TypeExpenseDTO typeExpense10 = new TypeExpenseDTO("Phát triển bản thân");
+        TypeExpenseDTO typeExpense10 = new TypeExpenseDTO("Phát triển bản thân", 0);
         typeExpenseDAO.addTypeExpense(typeExpense10);
 
-        ExpenseDTO expenseDTO = new ExpenseDTO("Đi chợ/ siêu thị", typeExpense);
+        ExpenseDTO expenseDTO = new ExpenseDTO("Đi chợ/ siêu thị", 0, typeExpense);
         expenseDAO.addExpense(expenseDTO);
-        ExpenseDTO expenseDTO2 = new ExpenseDTO("Ăn tiệm", typeExpense);
+        ExpenseDTO expenseDTO2 = new ExpenseDTO("Ăn tiệm", 0, typeExpense);
         expenseDAO.addExpense(expenseDTO2);
-        ExpenseDTO expenseDTO3 = new ExpenseDTO("Cafe", typeExpense);
+        ExpenseDTO expenseDTO3 = new ExpenseDTO("Cafe", 0, typeExpense);
         expenseDAO.addExpense(expenseDTO3);
 
-        ExpenseDTO expenseDTO4 = new ExpenseDTO("Điện", typeExpense2);
+        ExpenseDTO expenseDTO4 = new ExpenseDTO("Điện", 0, typeExpense2);
         expenseDAO.addExpense(expenseDTO4);
-        ExpenseDTO expenseDTO5 = new ExpenseDTO("Nước", typeExpense2);
+        ExpenseDTO expenseDTO5 = new ExpenseDTO("Nước", 0, typeExpense2);
         expenseDAO.addExpense(expenseDTO5);
-        ExpenseDTO expenseDTO6 = new ExpenseDTO("Internet", typeExpense2);
+        ExpenseDTO expenseDTO6 = new ExpenseDTO("Internet", 0, typeExpense2);
         expenseDAO.addExpense(expenseDTO6);
-        ExpenseDTO expenseDTO7 = new ExpenseDTO("Điện thoại di động", typeExpense2);
+        ExpenseDTO expenseDTO7 = new ExpenseDTO("Điện thoại di động", 0, typeExpense2);
         expenseDAO.addExpense(expenseDTO7);
-        ExpenseDTO expenseDTO8 = new ExpenseDTO("Gas", typeExpense2);
+        ExpenseDTO expenseDTO8 = new ExpenseDTO("Gas", 0, typeExpense2);
         expenseDAO.addExpense(expenseDTO8);
-        ExpenseDTO expenseDTO9 = new ExpenseDTO("Truyền hình", typeExpense2);
+        ExpenseDTO expenseDTO9 = new ExpenseDTO("Truyền hình", 0, typeExpense2);
         expenseDAO.addExpense(expenseDTO9);
-        ExpenseDTO expenseDTO10 = new ExpenseDTO("Điện thoại cố định", typeExpense2);
+        ExpenseDTO expenseDTO10 = new ExpenseDTO("Điện thoại cố định", 0, typeExpense2);
         expenseDAO.addExpense(expenseDTO10);
-        ExpenseDTO expenseDTO11 = new ExpenseDTO("Thuê người giúp việc", typeExpense2);
+        ExpenseDTO expenseDTO11 = new ExpenseDTO("Thuê người giúp việc", 0, typeExpense2);
         expenseDAO.addExpense(expenseDTO11);
 
-        ExpenseDTO expenseDTO12 = new ExpenseDTO("Xăng xe", typeExpense3);
+        ExpenseDTO expenseDTO12 = new ExpenseDTO("Xăng xe", 0, typeExpense3);
         expenseDAO.addExpense(expenseDTO12);
-        ExpenseDTO expenseDTO13 = new ExpenseDTO("Bảo hiểm xe", typeExpense3);
+        ExpenseDTO expenseDTO13 = new ExpenseDTO("Bảo hiểm xe", 0, typeExpense3);
         expenseDAO.addExpense(expenseDTO13);
-        ExpenseDTO expenseDTO14 = new ExpenseDTO("Sửa chữa, bảo dưỡng xe", typeExpense3);
+        ExpenseDTO expenseDTO14 = new ExpenseDTO("Sửa chữa, bảo dưỡng xe", 0, typeExpense3);
         expenseDAO.addExpense(expenseDTO14);
-        ExpenseDTO expenseDTO15 = new ExpenseDTO("Gửi xe", typeExpense3);
+        ExpenseDTO expenseDTO15 = new ExpenseDTO("Gửi xe", 0, typeExpense3);
         expenseDAO.addExpense(expenseDTO15);
-        ExpenseDTO expenseDTO16 = new ExpenseDTO("Rửa xe", typeExpense3);
+        ExpenseDTO expenseDTO16 = new ExpenseDTO("Rửa xe", 0, typeExpense3);
         expenseDAO.addExpense(expenseDTO16);
-        ExpenseDTO expenseDTO17 = new ExpenseDTO("Taxi/thuê xe", typeExpense3);
+        ExpenseDTO expenseDTO17 = new ExpenseDTO("Taxi/thuê xe", 0, typeExpense3);
         expenseDAO.addExpense(expenseDTO17);
 
-        ExpenseDTO expenseDTO18 = new ExpenseDTO("Quần áo", typeExpense4);
+        ExpenseDTO expenseDTO18 = new ExpenseDTO("Quần áo", 0, typeExpense4);
         expenseDAO.addExpense(expenseDTO18);
-        ExpenseDTO expenseDTO19 = new ExpenseDTO("Giày dép", typeExpense4);
+        ExpenseDTO expenseDTO19 = new ExpenseDTO("Giày dép", 0, typeExpense4);
         expenseDAO.addExpense(expenseDTO19);
-        ExpenseDTO expenseDTO20 = new ExpenseDTO("Phụ kiện khác", typeExpense4);
+        ExpenseDTO expenseDTO20 = new ExpenseDTO("Phụ kiện khác", 0, typeExpense4);
         expenseDAO.addExpense(expenseDTO20);
 
-        ExpenseDTO expenseDTO21 = new ExpenseDTO("Vui chơi giải trí", typeExpense5);
+        ExpenseDTO expenseDTO21 = new ExpenseDTO("Vui chơi giải trí", 0, typeExpense5);
         expenseDAO.addExpense(expenseDTO21);
-        ExpenseDTO expenseDTO22 = new ExpenseDTO("Du lịch", typeExpense5);
+        ExpenseDTO expenseDTO22 = new ExpenseDTO("Du lịch", 0, typeExpense5);
         expenseDAO.addExpense(expenseDTO22);
-        ExpenseDTO expenseDTO23 = new ExpenseDTO("Làm đẹp", typeExpense5);
+        ExpenseDTO expenseDTO23 = new ExpenseDTO("Làm đẹp", 0, typeExpense5);
         expenseDAO.addExpense(expenseDTO23);
-        ExpenseDTO expenseDTO24 = new ExpenseDTO("Phim ảnh ca nhạc", typeExpense5);
+        ExpenseDTO expenseDTO24 = new ExpenseDTO("Phim ảnh ca nhạc", 0, typeExpense5);
         expenseDAO.addExpense(expenseDTO24);
-        ExpenseDTO expenseDTO25 = new ExpenseDTO("Mỹ phẩm", typeExpense5);
+        ExpenseDTO expenseDTO25 = new ExpenseDTO("Mỹ phẩm", 0, typeExpense5);
         expenseDAO.addExpense(expenseDTO25);
 
-        ExpenseDTO expenseDTO26 = new ExpenseDTO("Học phí", typeExpense6);
+        ExpenseDTO expenseDTO26 = new ExpenseDTO("Học phí", 0, typeExpense6);
         expenseDAO.addExpense(expenseDTO26);
-        ExpenseDTO expenseDTO27 = new ExpenseDTO("Sách vở", typeExpense6);
+        ExpenseDTO expenseDTO27 = new ExpenseDTO("Sách vở", 0, typeExpense6);
         expenseDAO.addExpense(expenseDTO27);
-        ExpenseDTO expenseDTO28 = new ExpenseDTO("Sữa", typeExpense6);
+        ExpenseDTO expenseDTO28 = new ExpenseDTO("Sữa", 0, typeExpense6);
         expenseDAO.addExpense(expenseDTO28);
-        ExpenseDTO expenseDTO29 = new ExpenseDTO("Đồ chơi", typeExpense6);
+        ExpenseDTO expenseDTO29 = new ExpenseDTO("Đồ chơi", 0, typeExpense6);
         expenseDAO.addExpense(expenseDTO29);
-        ExpenseDTO expenseDTO30 = new ExpenseDTO("Tiền tiêu vặt", typeExpense6);
+        ExpenseDTO expenseDTO30 = new ExpenseDTO("Tiền tiêu vặt", 0, typeExpense6);
         expenseDAO.addExpense(expenseDTO30);
 
-        ExpenseDTO expenseDTO31 = new ExpenseDTO("Cưới xin", typeExpense7);
+        ExpenseDTO expenseDTO31 = new ExpenseDTO("Cưới xin", 0, typeExpense7);
         expenseDAO.addExpense(expenseDTO31);
-        ExpenseDTO expenseDTO32 = new ExpenseDTO("Ma chay", typeExpense7);
+        ExpenseDTO expenseDTO32 = new ExpenseDTO("Ma chay", 0, typeExpense7);
         expenseDAO.addExpense(expenseDTO32);
-        ExpenseDTO expenseDTO33 = new ExpenseDTO("Thăm hỏi", typeExpense7);
+        ExpenseDTO expenseDTO33 = new ExpenseDTO("Thăm hỏi", 0, typeExpense7);
         expenseDAO.addExpense(expenseDTO33);
-        ExpenseDTO expenseDTO34 = new ExpenseDTO("Biếu tặng", typeExpense7);
+        ExpenseDTO expenseDTO34 = new ExpenseDTO("Biếu tặng", 0, typeExpense7);
         expenseDAO.addExpense(expenseDTO34);
 
-        ExpenseDTO expenseDTO35 = new ExpenseDTO("Khám chữa bệnh", typeExpense8);
+        ExpenseDTO expenseDTO35 = new ExpenseDTO("Khám chữa bệnh", 0, typeExpense8);
         expenseDAO.addExpense(expenseDTO35);
-        ExpenseDTO expenseDTO36 = new ExpenseDTO("Thuốc men", typeExpense8);
+        ExpenseDTO expenseDTO36 = new ExpenseDTO("Thuốc men", 0, typeExpense8);
         expenseDAO.addExpense(expenseDTO36);
-        ExpenseDTO expenseDTO37 = new ExpenseDTO("Thể thao", typeExpense8);
+        ExpenseDTO expenseDTO37 = new ExpenseDTO("Thể thao", 0, typeExpense8);
         expenseDAO.addExpense(expenseDTO37);
 
-        ExpenseDTO expenseDTO38 = new ExpenseDTO("Mua sắm đồ đạc", typeExpense9);
+        ExpenseDTO expenseDTO38 = new ExpenseDTO("Mua sắm đồ đạc", 0, typeExpense9);
         expenseDAO.addExpense(expenseDTO38);
-        ExpenseDTO expenseDTO39 = new ExpenseDTO("Sửa chữa nhà cửa", typeExpense9);
+        ExpenseDTO expenseDTO39 = new ExpenseDTO("Sửa chữa nhà cửa", 0, typeExpense9);
         expenseDAO.addExpense(expenseDTO39);
-        ExpenseDTO expenseDTO40 = new ExpenseDTO("Thuê nhà", typeExpense9);
+        ExpenseDTO expenseDTO40 = new ExpenseDTO("Thuê nhà", 0, typeExpense9);
         expenseDAO.addExpense(expenseDTO40);
 
-        ExpenseDTO expenseDTO41 = new ExpenseDTO("Học hành", typeExpense10);
+        ExpenseDTO expenseDTO41 = new ExpenseDTO("Học hành", 0, typeExpense10);
         expenseDAO.addExpense(expenseDTO41);
-        ExpenseDTO expenseDTO42 = new ExpenseDTO("Giao lưu, quan hệ", typeExpense10);
+        ExpenseDTO expenseDTO42 = new ExpenseDTO("Giao lưu, quan hệ", 0, typeExpense10);
         expenseDAO.addExpense(expenseDTO42);
 
     }
