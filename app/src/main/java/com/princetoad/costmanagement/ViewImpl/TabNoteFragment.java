@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -32,8 +33,9 @@ import java.util.Date;
 public class TabNoteFragment extends BaseFragment implements TabNoteView{
     private static Fragment instance;
     private RelativeLayout tab_note_expense, tab_note_description, tab_note_account, tab_note_date;
-    private TextView txt_from_account, txt_hour, txt_date, txt_content_des, txt_content_expense;
+    private TextView txt_from_account, txt_hour, txt_date, txt_content_des, txt_content_expense, fragment_title_toolbar;
     private Button btn_tab_note;
+    private ImageView btn_fragment_back_toolbar;
     private TabNotePresenter controller;
     private AccountDTO accountDTO;
     private TypeExpenseDTO typeExpenseDTO;
@@ -73,6 +75,8 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
         userDTO = new UserDTO();
 
         controller = new TabNotePresenterImpl(TabNoteFragment.this);
+        btn_fragment_back_toolbar = (ImageView) v.findViewById(R.id.btn_fragment_back_toolbar);
+        fragment_title_toolbar = (TextView) v.findViewById(R.id.fragment_title_toolbar);
         tab_note_expense = (RelativeLayout) v.findViewById(R.id.tab_note_expense);
         tab_note_description = (RelativeLayout) v.findViewById(R.id.tab_note_description);
         tab_note_account = (RelativeLayout) v.findViewById(R.id.tab_note_account);
@@ -85,7 +89,8 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
 
         btn_tab_note = (Button) v.findViewById(R.id.btn_tab_note);
 
-        setToolbar("Ghi chú", v);
+        fragment_title_toolbar.setText("Ghi chú");
+
     }
 
     @Override
@@ -135,6 +140,13 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
             @Override
             public void onClick(View v) {
                 controller.onSaveEvent(userDTO, "100000", expenseDTO, typeExpenseDTO, txt_content_des.getText().toString(), accountDTO, date_manager);
+            }
+        });
+
+        btn_fragment_back_toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
             }
         });
     }

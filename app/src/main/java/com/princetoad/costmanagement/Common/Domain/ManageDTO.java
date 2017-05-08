@@ -41,10 +41,13 @@ public class ManageDTO extends BaseDTO{
     @DatabaseField(columnName = Constant.TABLE_MANAGE.MANAGE_DATE)
     private String date;
 
+    @DatabaseField(columnName = Constant.TABLE_MANAGE.MANAGE_HOUR)
+    private String hour;
+
     public ManageDTO() {
     }
 
-    public ManageDTO(int type, UserDTO userDTO, String money, TypeExpenseDTO typeExpenseDTO, ExpenseDTO expenseDTO, String description, AccountDTO accountDTO, String date) {
+    public ManageDTO(int type, UserDTO userDTO, String money, TypeExpenseDTO typeExpenseDTO, ExpenseDTO expenseDTO, String description, AccountDTO accountDTO, String date, String hour) {
         this.type = type;
         this.userDTO = userDTO;
         this.money = money;
@@ -53,6 +56,7 @@ public class ManageDTO extends BaseDTO{
         this.description = description;
         this.accountDTO = accountDTO;
         this.date = date;
+        this.hour = hour;
     }
 
     public int getId() {
@@ -125,5 +129,13 @@ public class ManageDTO extends BaseDTO{
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getHour() {
+        return hour;
+    }
+
+    public void setHour(String hour) {
+        this.hour = hour;
     }
 }

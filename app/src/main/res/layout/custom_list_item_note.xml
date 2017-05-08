@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_item_note_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="35dp"
+            android:layout_toLeftOf="@+id/txt_item_note_money"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:textColor="#000"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_item_note_money"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18dp"
+            android:textColor="#000"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/txt_item_list_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_toLeftOf="@+id/img_check_child"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:textColor="#000"
+            android:textSize="17dp" />
+
+        <LinearLayout
+            android:id="@+id/img_check_child"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/item_list_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="17dp"
+                android:text="Ví"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_account_gray"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

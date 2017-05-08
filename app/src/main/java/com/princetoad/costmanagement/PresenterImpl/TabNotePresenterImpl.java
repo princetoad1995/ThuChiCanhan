@@ -35,6 +35,9 @@ public class TabNotePresenterImpl implements TabNotePresenter{
 
     @Override
     public void onSaveEvent(UserDTO userDTO, String money, ExpenseDTO expenseDTO, TypeExpenseDTO typeExpenseDTO, String description, AccountDTO accountDTO, String date) {
-        view.onSuccess();
+        if (expenseDTO.getName().equals("") || money.equals("")){
+            view.showMessage("Không được để trống thông tin");
+        } else
+            view.onSuccess();
     }
 }

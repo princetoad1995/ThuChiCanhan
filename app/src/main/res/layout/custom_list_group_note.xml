@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#dcdcdc"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/lblListHeaderNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/liner_note"
+        android:textColor="#000"
+        android:textSize="17dp" />
+
+    <LinearLayout
+        android:id="@+id/liner_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/group_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17dp"
+            android:text="Thu"/>
+        <TextView
+            android:id="@+id/group_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#000"
+            android:layout_marginTop="5dp"
+            android:textSize="17dp"
+            android:text="Chi"/>
+    </LinearLayout>
+
+</RelativeLayout>

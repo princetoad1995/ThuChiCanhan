@@ -21,7 +21,8 @@
         <activity android:name=".ViewImpl.RegisterActivity" />
         <activity android:name=".ViewImpl.ChooseAccountActivity" />
         <activity android:name=".ViewImpl.NoteDescriptionActivity" />
-        <activity android:name=".ViewImpl.ChooseExpenseActivity"></activity>
+        <activity android:name=".ViewImpl.ChooseExpenseActivity" />
+        <activity android:name=".ViewImpl.ListNoteActivity"></activity>
     </application>
 
 </manifest>
