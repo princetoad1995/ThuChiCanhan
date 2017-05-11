@@ -17,14 +17,19 @@ public class TabAccountPresenterImpl implements TabAccountPresenter{
         this.view = view;
         this.dao = new AccountDAOImpl();
 
-        int total = 0;
+        long total = 0;
         view.setListAccount(dao.getAllListAccounts());
         for (int i = 0; i < dao.getAllListAccounts().size(); i++)
             total += dao.getAllListAccounts().get(i).getMoney();
+        view.setTotalMoney(total);
     }
 
     @Override
-    public void onChooseAccount() {
-
+    public void reloadAccount() {
+        long total = 0;
+        view.setListAccount(dao.getAllListAccounts());
+        for (int i = 0; i < dao.getAllListAccounts().size(); i++)
+            total += dao.getAllListAccounts().get(i).getMoney();
+        view.setTotalMoney(total);
     }
 }

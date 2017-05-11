@@ -11,5 +11,7 @@ import java.util.List;
 public interface AccountDAO {
     public void addAccount(AccountDTO account);
 
+    public void editAccount(AccountDTO account);
+
     public List<AccountDTO> getAllListAccounts();
 }

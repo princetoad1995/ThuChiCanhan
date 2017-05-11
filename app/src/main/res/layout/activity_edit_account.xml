@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.princetoad.costmanagement.ViewImpl.EditAccountActivity">
+
+    <include
+        layout="@layout/tool_bar" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/tab_note_expense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/border_radius_gray"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/txt_title1"
+                style="@style/style_tab_note_text"
+                android:text="@string/name" />
+
+            <EditText
+                android:id="@+id/txt_edit_account"
+                android:text=""
+                android:background="@drawable/edit_text2"
+                style="@style/style_tab_note_content_text"
+                android:layout_height="40dp"
+                android:layout_toLeftOf="@+id/img_del"
+                android:layout_toRightOf="@+id/txt_title1"
+                android:gravity="end"/>
+
+            <ImageView
+                android:id="@+id/img_del"
+                style="@style/style_tab_note_img"
+                android:src="@drawable/ic_del" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Số tiền ban đầu"
+            android:textColor="#000"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/border_radius_gray"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/txt_edit_money"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edit_text2"
+                android:layout_toLeftOf="@+id/txt_dong"
+                android:layout_toStartOf="@+id/txt_dong"
+                android:gravity="end"
+                android:inputType="number"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_dong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="đ"
+                android:textColor="#000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_edit_save"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/border_radius_bottom"
+            android:text="@string/save"
+            android:textColor="#fff"
+            android:textSize="16sp"/>
+    </LinearLayout>
+</LinearLayout>

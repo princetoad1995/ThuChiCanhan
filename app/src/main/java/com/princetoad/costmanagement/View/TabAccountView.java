@@ -11,5 +11,5 @@ import java.util.List;
 public interface TabAccountView {
     public void setListAccount(List<AccountDTO> list);
 
-    public void setTotalMoney(int total);
+    public void setTotalMoney(long total);
 }

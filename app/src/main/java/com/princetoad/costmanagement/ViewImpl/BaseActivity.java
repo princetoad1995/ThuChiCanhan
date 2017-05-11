@@ -74,6 +74,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewBase
             @Override
             public void onClick(View v) {
                 finish();
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
             }
         });
         title_toolbar.setText(s);

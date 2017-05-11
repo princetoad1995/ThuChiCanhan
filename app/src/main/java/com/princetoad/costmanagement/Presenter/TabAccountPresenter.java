@@ -5,5 +5,5 @@ package com.princetoad.costmanagement.Presenter;
  */
 
 public interface TabAccountPresenter {
-    public void onChooseAccount();
+    public void reloadAccount();
 }

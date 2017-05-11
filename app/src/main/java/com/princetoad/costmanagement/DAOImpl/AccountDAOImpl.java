@@ -36,6 +36,15 @@ public class AccountDAOImpl implements AccountDAO{
     }
 
     @Override
+    public void editAccount(AccountDTO account) {
+        try {
+            accountDAO.update(account);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public List<AccountDTO> getAllListAccounts() {
         List<AccountDTO> list = new ArrayList<>();
         try {

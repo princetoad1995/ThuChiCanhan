@@ -16,4 +16,8 @@
     <string name="date">Ngày</string>
     <string name="write">Ghi</string>
     <string name="save">Lưu</string>
+    <string name="name">Tên</string>
+    <string name="start_money">Số tiền ban đầu</string>
+    <string name="name_account">Tên tài khoản</string>
+    <string name="money_account">Nhập số tiền</string>
 </resources>

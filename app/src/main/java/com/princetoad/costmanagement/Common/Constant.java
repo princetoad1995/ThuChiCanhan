@@ -19,6 +19,9 @@ public class Constant {
 
         public static final int REQUEST_CODE_EXPENSE = 5;
         public static final int RESULT_CODE_EXPENSE = 6;
+
+        public static final int REQUEST_CODE_EDIT_ACCOUNT = 7;
+        public static final int RESULT_CODE_EDIT_ACCOUNT = 8;
     }
 
     public static class TABLE_ACCOUNT{
