@@ -10,5 +10,5 @@ import com.princetoad.costmanagement.Common.Domain.UserDTO;
  */
 
 public interface TabNotePresenter {
-    public void onSaveEvent(UserDTO userDTO, String money, ExpenseDTO expenseDTO, TypeExpenseDTO typeExpenseDTO, String description, AccountDTO accountDTO, String date);
+    public void onSaveEvent(UserDTO userDTO, long money, ExpenseDTO expenseDTO, TypeExpenseDTO typeExpenseDTO, String description, AccountDTO accountDTO, String date, int type);
 }

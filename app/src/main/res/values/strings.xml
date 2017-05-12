@@ -20,4 +20,9 @@
     <string name="start_money">Số tiền ban đầu</string>
     <string name="name_account">Tên tài khoản</string>
     <string name="money_account">Nhập số tiền</string>
+
+    <string-array name="type">
+        <item>Chi tiền</item>
+        <item>Thu tiền</item>
+    </string-array>
 </resources>

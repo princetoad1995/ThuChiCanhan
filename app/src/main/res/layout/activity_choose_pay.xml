@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.princetoad.costmanagement.ViewImpl.ListNoteActivity">
+    tools:context="com.princetoad.costmanagement.ViewImpl.ChooseExpenseActivity">
 
     <include
         layout="@layout/tool_bar" />
-    <ExpandableListView
-        android:id="@+id/list_noted"
+
+    <ListView
+        android:id="@+id/list_pay"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </ExpandableListView>
+    </ListView>
 </LinearLayout>

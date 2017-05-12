@@ -6,7 +6,7 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/lblListHeaderNote"
+        android:id="@+id/txt_date_noted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -25,7 +25,7 @@
         android:layout_alignParentEnd="true"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/group_collect"
+            android:id="@+id/group_earn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@color/colorPrimary"

@@ -21,7 +21,7 @@ public class ManageDTO extends BaseDTO{
     private UserDTO userDTO;
 
     @DatabaseField(columnName = Constant.TABLE_MANAGE.MANAGE_MONEY)
-    private String money;
+    private long money;
 
     // One-to-many
     @DatabaseField(columnName = Constant.TABLE_MANAGE.MANAGE_TYPE_EXPENSE, foreign = true, foreignAutoRefresh = true)
@@ -45,18 +45,6 @@ public class ManageDTO extends BaseDTO{
     private String hour;
 
     public ManageDTO() {
-    }
-
-    public ManageDTO(int type, UserDTO userDTO, String money, TypeExpenseDTO typeExpenseDTO, ExpenseDTO expenseDTO, String description, AccountDTO accountDTO, String date, String hour) {
-        this.type = type;
-        this.userDTO = userDTO;
-        this.money = money;
-        this.typeExpenseDTO = typeExpenseDTO;
-        this.expenseDTO = expenseDTO;
-        this.description = description;
-        this.accountDTO = accountDTO;
-        this.date = date;
-        this.hour = hour;
     }
 
     public int getId() {
@@ -83,11 +71,11 @@ public class ManageDTO extends BaseDTO{
         this.userDTO = userDTO;
     }
 
-    public String getMoney() {
+    public long getMoney() {
         return money;
     }
 
-    public void setMoney(String money) {
+    public void setMoney(long money) {
         this.money = money;
     }
 

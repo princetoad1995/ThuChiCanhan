@@ -24,7 +24,7 @@ public class DateTimeUtils {
     }
 
     public static String getCurrentTimeStamp() {
-        SimpleDateFormat sdfDate = new SimpleDateFormat("HH:mm");//dd/MM/yyyy
+        SimpleDateFormat sdfDate = new SimpleDateFormat("hh:mm dd/MM/yyyy");//dd/MM/yyyy
         Date now = new Date();
         String strDate = sdfDate.format(now);
         return strDate;

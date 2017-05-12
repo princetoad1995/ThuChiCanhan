@@ -28,6 +28,8 @@ public class EditAccountActivity extends BaseActivity implements EditAccountView
     private ImageView img_del;
     private Button btn_edit_save;
     private EditAccountPresenter controller;
+    private boolean isEditable = true;
+    private String money = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +76,13 @@ public class EditAccountActivity extends BaseActivity implements EditAccountView
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String money = txt_edit_money.getText().toString();
-                txt_edit_money.setText(StringUtil.formatLocaleVN(Long.parseLong(money)));
+                if (isEditable) {
+                    isEditable = false;
+                    styleText(s.toString());
+
+                } else {
+                    isEditable = true;
+                }
             }
 
             @Override
@@ -91,12 +98,31 @@ public class EditAccountActivity extends BaseActivity implements EditAccountView
                     showMessage("Điền thiếu thông tin");
                 } else {
                     accountDTO.setName(txt_edit_account.getText().toString());
-                    accountDTO.setMoney(Integer.parseInt(txt_edit_money.getText().toString()));
+                    accountDTO.setMoney(Long.parseLong(money));
                     controller.editAccount(accountDTO);
 
                 }
             }
         });
+    }
+
+    private void styleText(String s) {
+        if (!s.toString().matches("^\\$(\\d{1,3}(\\,\\d{3})*|(\\d+))(\\.\\d{2})?$")) {
+            String userInput = "" + s.toString().replaceAll("[^\\d]", "");
+            money = userInput;
+            StringBuffer cashAmountBuilder = new StringBuffer(userInput);
+
+            if (cashAmountBuilder.length() > 3) {
+                for (int i = 0; i < cashAmountBuilder.length(); i = i + 4) {
+                    cashAmountBuilder.insert(cashAmountBuilder.length() - i, '.');
+                }
+                String tien = cashAmountBuilder.substring(0, cashAmountBuilder.length() - 1);
+
+                txt_edit_money.setText(tien);
+                txt_edit_money.setSelection(txt_edit_money.getText().length());
+            }
+        }
+
     }
 
     @Override

@@ -2,11 +2,16 @@ package com.princetoad.costmanagement.ViewImpl;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,18 +35,23 @@ import java.util.Date;
  * Created by PRINCE D. TOAD on 4/11/2017.
  */
 
-public class TabNoteFragment extends BaseFragment implements TabNoteView{
+public class TabNoteFragment extends BaseFragment implements TabNoteView {
     private static Fragment instance;
     private RelativeLayout tab_note_expense, tab_note_description, tab_note_account, tab_note_date;
-    private TextView txt_from_account, txt_hour, txt_date, txt_content_des, txt_content_expense, fragment_title_toolbar;
+    private Spinner sp_type;
+    private TextView txt_from_account, txt_hour, txt_date, txt_content_des, txt_content_expense, txt_title1;
+    private EditText txt_input_money;
     private Button btn_tab_note;
-    private ImageView btn_fragment_back_toolbar;
+    private ImageView btn_history_noted;
     private TabNotePresenter controller;
     private AccountDTO accountDTO;
     private TypeExpenseDTO typeExpenseDTO;
     private ExpenseDTO expenseDTO;
     private UserDTO userDTO;
-    private String date_manager = "";
+    private String date_manager = DateTimeUtils.getCurrentTimeStamp();
+    private boolean isEditable = true;
+    private String money = "";
+    private int type = Constant.TYPE.PAY;
     private SimpleDateFormat mFormatter = new SimpleDateFormat("hh:mm dd/MM/yyyy");
     private SlideDateTimeListener listener = new SlideDateTimeListener() {
 
@@ -50,8 +60,7 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
 
             txt_hour.setText(mFormatter.format(date));
             txt_date.setVisibility(View.GONE);
-            String[] words = mFormatter.format(date).split("\\s");
-            date_manager = words[words.length-1];
+            date_manager = mFormatter.format(date);
         }
 
         // Optional cancel listener
@@ -75,8 +84,8 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
         userDTO = new UserDTO();
 
         controller = new TabNotePresenterImpl(TabNoteFragment.this);
-        btn_fragment_back_toolbar = (ImageView) v.findViewById(R.id.btn_fragment_back_toolbar);
-        fragment_title_toolbar = (TextView) v.findViewById(R.id.fragment_title_toolbar);
+        sp_type = (Spinner) v.findViewById(R.id.sp_type);
+        btn_history_noted = (ImageView) v.findViewById(R.id.btn_history_noted);
         tab_note_expense = (RelativeLayout) v.findViewById(R.id.tab_note_expense);
         tab_note_description = (RelativeLayout) v.findViewById(R.id.tab_note_description);
         tab_note_account = (RelativeLayout) v.findViewById(R.id.tab_note_account);
@@ -86,10 +95,11 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
         txt_content_des = (TextView) v.findViewById(R.id.txt_content_des);
         txt_hour = (TextView) v.findViewById(R.id.txt_hour);
         txt_date = (TextView) v.findViewById(R.id.txt_date);
+        txt_input_money = (EditText) v.findViewById(R.id.txt_input_money);
+        txt_title1 = (TextView) v.findViewById(R.id.txt_title_1);
 
         btn_tab_note = (Button) v.findViewById(R.id.btn_tab_note);
 
-        fragment_title_toolbar.setText("Ghi chú");
 
     }
 
@@ -103,7 +113,7 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
                 startActivityForResult(i, Constant.INTENT.REQUEST_CODE_ACCOUNT);
             }
         });
-        txt_hour.setText(DateTimeUtils.getCurrentTimeStamp());
+        txt_hour.setText(DateTimeUtils.getCurrentTimeStamp().split("\\s")[1]);
         tab_note_description.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,17 +146,59 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
             }
         });
 
-        btn_tab_note.setOnClickListener(new View.OnClickListener() {
+        btn_history_noted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                controller.onSaveEvent(userDTO, "100000", expenseDTO, typeExpenseDTO, txt_content_des.getText().toString(), accountDTO, date_manager);
+                Intent i = new Intent(getContext(), ListNoteActivity.class);
+                startActivity(i);
             }
         });
 
-        btn_fragment_back_toolbar.setOnClickListener(new View.OnClickListener() {
+        txt_input_money.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (isEditable) {
+                    isEditable = false;
+                    styleText(s.toString());
+
+                } else {
+                    isEditable = true;
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        sp_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position + 1 == Constant.TYPE.EARN) {
+                    type = Constant.TYPE.EARN;
+                    txt_title1.setText("Mục thu");
+                } else if (position + 1 == Constant.TYPE.PAY) {
+                    type = Constant.TYPE.PAY;
+                    txt_title1.setText("Mục chi");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        btn_tab_note.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                controller.onSaveEvent(userDTO, Long.parseLong(money), expenseDTO, typeExpenseDTO, txt_content_des.getText().toString(), accountDTO, date_manager, type);
             }
         });
     }
@@ -164,21 +216,40 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Constant.INTENT.REQUEST_CODE_DESCRIPTION && resultCode == Constant.INTENT.RESULT_CODE_DESCRIPTION && data != null){
+        if (requestCode == Constant.INTENT.REQUEST_CODE_DESCRIPTION && resultCode == Constant.INTENT.RESULT_CODE_DESCRIPTION && data != null) {
             txt_content_des.setText(data.getSerializableExtra("des") + "");
-        } else if (requestCode == Constant.INTENT.REQUEST_CODE_ACCOUNT && resultCode == Constant.INTENT.RESULT_CODE_ACCOUNT && data != null){
+        } else if (requestCode == Constant.INTENT.REQUEST_CODE_ACCOUNT && resultCode == Constant.INTENT.RESULT_CODE_ACCOUNT && data != null) {
             accountDTO = (AccountDTO) data.getSerializableExtra("account");
             txt_from_account.setText(accountDTO.getName());
-        } else if (requestCode == Constant.INTENT.REQUEST_CODE_EXPENSE && resultCode == Constant.INTENT.RESULT_CODE_EXPENSE && data != null){
-            if ((int) data.getSerializableExtra("type") == 1){
+        } else if (requestCode == Constant.INTENT.REQUEST_CODE_EXPENSE && resultCode == Constant.INTENT.RESULT_CODE_EXPENSE && data != null) {
+            if ((int) data.getSerializableExtra("type") == 1) {
                 typeExpenseDTO = (TypeExpenseDTO) data.getSerializableExtra("expense");
                 txt_content_expense.setText(typeExpenseDTO.getName());
-            } else if ((int) data.getSerializableExtra("type") == 2){
+            } else if ((int) data.getSerializableExtra("type") == 2) {
                 expenseDTO = (ExpenseDTO) data.getSerializableExtra("expense");
                 txt_content_expense.setText(expenseDTO.getName());
             }
 
         }
+    }
+
+    private void styleText(String s) {
+        if (!s.toString().matches("^\\$(\\d{1,3}(\\,\\d{3})*|(\\d+))(\\.\\d{2})?$")) {
+            String userInput = "" + s.toString().replaceAll("[^\\d]", "");
+            money = userInput;
+            StringBuffer cashAmountBuilder = new StringBuffer(userInput);
+
+            if (cashAmountBuilder.length() > 3) {
+                for (int i = 0; i < cashAmountBuilder.length(); i = i + 4) {
+                    cashAmountBuilder.insert(cashAmountBuilder.length() - i, '.');
+                }
+                String tien = cashAmountBuilder.substring(0, cashAmountBuilder.length() - 1);
+
+                txt_input_money.setText(tien);
+                txt_input_money.setSelection(txt_input_money.getText().length());
+            }
+        }
+
     }
 
 
@@ -190,5 +261,15 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView{
     @Override
     public void setUser(UserDTO userDTO) {
         this.userDTO = userDTO;
+    }
+
+    @Override
+    public int getType() {
+        return type;
+    }
+
+    @Override
+    public void setAccount(AccountDTO account) {
+        this.accountDTO = account;
     }
 }

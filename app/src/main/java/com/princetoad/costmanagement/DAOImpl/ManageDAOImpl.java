@@ -1,6 +1,7 @@
 package com.princetoad.costmanagement.DAOImpl;
 
 import com.j256.ormlite.dao.Dao;
+import com.princetoad.costmanagement.Common.Constant;
 import com.princetoad.costmanagement.Common.Database.DatabaseHelper;
 import com.princetoad.costmanagement.Common.Domain.ManageDTO;
 import com.princetoad.costmanagement.DAO.ManageDAO;
@@ -40,6 +41,20 @@ public class ManageDAOImpl implements ManageDAO{
         List<ManageDTO> list = new ArrayList<>();
         try {
             list = manageDAO.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public List<ManageDTO> getAllListByTypeAndDate(int type) {
+        List<ManageDTO> list = new ArrayList<>();
+        try {
+            list = manageDAO.queryBuilder()
+            .where()
+            .eq(Constant.TABLE_MANAGE.MANAGE_TYPE, type)
+            .query();
         } catch (SQLException e) {
             e.printStackTrace();
         }

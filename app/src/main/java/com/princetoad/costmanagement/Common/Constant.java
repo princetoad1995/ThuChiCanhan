@@ -10,6 +10,11 @@ public class Constant {
         public static final String REMEMBER = "remember";
     }
 
+    public static class TYPE {
+        public static final int EARN = 1;
+        public static final int PAY = 2;
+    }
+
     public static class INTENT{
         public static final int REQUEST_CODE_DESCRIPTION = 1;
         public static final int RESULT_CODE_DESCRIPTION = 2;
@@ -48,6 +53,7 @@ public class Constant {
         public static final String TYPE_EXPENSE_NAME = "name";
         public static final String TYPE_EXPENSE_EXPENSE = "expense";
         public static final String TYPE_EXPENSE_CHECK = "check";
+        public static final String TYPE_EXPENSE_TYPE = "type";
         public static final String TYPE_EXPENSE_MANAGE = "manage";
     }
 
@@ -72,5 +78,13 @@ public class Constant {
         public static final String MANAGE_ACCOUNT = "account";
         public static final String MANAGE_DATE = "date";
         public static final String MANAGE_HOUR = "hour";
+    }
+
+    public static class TABLE_NOTED{
+        public static final String TABLE_NOTED_NAME = "noted";
+        public static final String NOTED_ID = "id";
+        public static final String NOTED_DATE = "date";
+        public static final String NOTED_EARN_MONEY = "earn_money";
+        public static final String NOTED_PAY_MONEY = "pay_money";
     }
 }

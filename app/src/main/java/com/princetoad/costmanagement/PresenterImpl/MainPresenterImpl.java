@@ -58,26 +58,39 @@ public class MainPresenterImpl implements MainPresenter {
     }
 
     public void addTypeExpense() {
-        TypeExpenseDTO typeExpense = new TypeExpenseDTO("Ăn uống", 0);
+        TypeExpenseDTO typeExpense = new TypeExpenseDTO("Ăn uống", 0, Constant.TYPE.PAY);
         typeExpenseDAO.addTypeExpense(typeExpense);
-        TypeExpenseDTO typeExpense2 = new TypeExpenseDTO("Dịch vụ sinh hoạt", 0);
+        TypeExpenseDTO typeExpense2 = new TypeExpenseDTO("Dịch vụ sinh hoạt", 0, Constant.TYPE.PAY);
         typeExpenseDAO.addTypeExpense(typeExpense2);
-        TypeExpenseDTO typeExpense3 = new TypeExpenseDTO("Đi lại", 0);
+        TypeExpenseDTO typeExpense3 = new TypeExpenseDTO("Đi lại", 0, Constant.TYPE.PAY);
         typeExpenseDAO.addTypeExpense(typeExpense3);
-        TypeExpenseDTO typeExpense4 = new TypeExpenseDTO("Trang phục", 0);
+        TypeExpenseDTO typeExpense4 = new TypeExpenseDTO("Trang phục", 0, Constant.TYPE.PAY);
         typeExpenseDAO.addTypeExpense(typeExpense4);
-        TypeExpenseDTO typeExpense5 = new TypeExpenseDTO("Hưởng thụ", 0);
+        TypeExpenseDTO typeExpense5 = new TypeExpenseDTO("Hưởng thụ", 0, Constant.TYPE.PAY);
         typeExpenseDAO.addTypeExpense(typeExpense5);
-        TypeExpenseDTO typeExpense6 = new TypeExpenseDTO("Con cái", 0);
+        TypeExpenseDTO typeExpense6 = new TypeExpenseDTO("Con cái", 0, Constant.TYPE.PAY);
         typeExpenseDAO.addTypeExpense(typeExpense6);
-        TypeExpenseDTO typeExpense7 = new TypeExpenseDTO("Hiếu hỉ", 0);
+        TypeExpenseDTO typeExpense7 = new TypeExpenseDTO("Hiếu hỉ", 0, Constant.TYPE.PAY);
         typeExpenseDAO.addTypeExpense(typeExpense7);
-        TypeExpenseDTO typeExpense8 = new TypeExpenseDTO("Sức khỏe", 0);
+        TypeExpenseDTO typeExpense8 = new TypeExpenseDTO("Sức khỏe", 0, Constant.TYPE.PAY);
         typeExpenseDAO.addTypeExpense(typeExpense8);
-        TypeExpenseDTO typeExpense9 = new TypeExpenseDTO("Nhà cửa", 0);
+        TypeExpenseDTO typeExpense9 = new TypeExpenseDTO("Nhà cửa", 0, Constant.TYPE.PAY);
         typeExpenseDAO.addTypeExpense(typeExpense9);
-        TypeExpenseDTO typeExpense10 = new TypeExpenseDTO("Phát triển bản thân", 0);
+        TypeExpenseDTO typeExpense10 = new TypeExpenseDTO("Phát triển bản thân", 0, Constant.TYPE.PAY);
         typeExpenseDAO.addTypeExpense(typeExpense10);
+
+        TypeExpenseDTO typeExpense11 = new TypeExpenseDTO("Lương", 0, Constant.TYPE.EARN);
+        typeExpenseDAO.addTypeExpense(typeExpense11);
+        TypeExpenseDTO typeExpense12 = new TypeExpenseDTO("Thưởng", 0, Constant.TYPE.EARN);
+        typeExpenseDAO.addTypeExpense(typeExpense12);
+        TypeExpenseDTO typeExpense13 = new TypeExpenseDTO("Được cho/tặng", 0, Constant.TYPE.EARN);
+        typeExpenseDAO.addTypeExpense(typeExpense13);
+        TypeExpenseDTO typeExpense14 = new TypeExpenseDTO("Tiền lãi", 0, Constant.TYPE.EARN);
+        typeExpenseDAO.addTypeExpense(typeExpense14);
+        TypeExpenseDTO typeExpense15 = new TypeExpenseDTO("Lãi tiết kiệm", 0, Constant.TYPE.EARN);
+        typeExpenseDAO.addTypeExpense(typeExpense15);
+        TypeExpenseDTO typeExpense16 = new TypeExpenseDTO("Khác", 0, Constant.TYPE.EARN);
+        typeExpenseDAO.addTypeExpense(typeExpense16);
 
         ExpenseDTO expenseDTO = new ExpenseDTO("Đi chợ/ siêu thị", 0, typeExpense);
         expenseDAO.addExpense(expenseDTO);
