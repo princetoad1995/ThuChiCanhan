@@ -12,4 +12,6 @@ public interface TypeExpenseDAO {
     public void addTypeExpense(TypeExpenseDTO typeExpense);
 
     public List<TypeExpenseDTO> getAllListTypeExpense();
+
+    public List<TypeExpenseDTO> getAllListTypeExpenseByType(int type);
 }

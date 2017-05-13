@@ -1,6 +1,7 @@
 package com.princetoad.costmanagement.DAOImpl;
 
 import com.j256.ormlite.dao.Dao;
+import com.princetoad.costmanagement.Common.Constant;
 import com.princetoad.costmanagement.Common.Database.DatabaseHelper;
 import com.princetoad.costmanagement.Common.Domain.TypeExpenseDTO;
 import com.princetoad.costmanagement.DAO.TypeExpenseDAO;
@@ -40,6 +41,20 @@ public class TypeExpenseDAOImpl implements TypeExpenseDAO{
         List<TypeExpenseDTO> list = new ArrayList<>();
         try {
             list = typeExpenseDAO.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public List<TypeExpenseDTO> getAllListTypeExpenseByType(int type) {
+        List<TypeExpenseDTO> list = new ArrayList<>();
+        try {
+            list = typeExpenseDAO.queryBuilder()
+            .where()
+            .eq(Constant.TABLE_TYPE_EXPENSE.TYPE_EXPENSE_TYPE, type)
+            .query();
         } catch (SQLException e) {
             e.printStackTrace();
         }

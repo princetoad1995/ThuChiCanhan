@@ -116,13 +116,13 @@ public class ListNotedAdapter extends BaseExpandableListAdapter {
         TextView item_list_account = (TextView) convertView
                 .findViewById(R.id.item_list_account);
 
-        if (manageDTO.getType() == Constant.TYPE.EARN){
+        if (manageDTO.getType() == Constant.TYPE.PAY){
             if (manageDTO.getTypeExpenseDTO() != null)
-                txt_item_note_name.setText("Thu: " + manageDTO.getTypeExpenseDTO().getName());
+                txt_item_note_name.setText("Chi: " + manageDTO.getTypeExpenseDTO().getName());
             else if (manageDTO.getExpenseDTO() != null)
-                txt_item_note_name.setText("Thu: " + manageDTO.getExpenseDTO().getName());
-        } else if (manageDTO.getType() == Constant.TYPE.PAY){
-            txt_item_note_name.setText("Chi: " + manageDTO.getTypeExpenseDTO().getName());
+                txt_item_note_name.setText("Chi: " + manageDTO.getExpenseDTO().getName());
+        } else if (manageDTO.getType() == Constant.TYPE.EARN){
+            txt_item_note_name.setText("Thu: " + manageDTO.getTypeExpenseDTO().getName());
         }
         txt_item_note_money.setText(StringUtil.formatLocaleVN(manageDTO.getMoney()) + " đ");
         if (manageDTO.getDescription() == null)

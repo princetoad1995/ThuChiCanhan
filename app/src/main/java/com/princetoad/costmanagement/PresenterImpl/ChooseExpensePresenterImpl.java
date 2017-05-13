@@ -2,6 +2,7 @@ package com.princetoad.costmanagement.PresenterImpl;
 
 import android.util.Log;
 
+import com.princetoad.costmanagement.Common.Constant;
 import com.princetoad.costmanagement.Common.Domain.ExpenseDTO;
 import com.princetoad.costmanagement.Common.Domain.TypeExpenseDTO;
 import com.princetoad.costmanagement.DAO.ExpenseDAO;
@@ -33,7 +34,7 @@ public class ChooseExpensePresenterImpl implements ChooseExpensePresenter {
         this.listTypeExpense = new ArrayList<>();
         this.listExpense = new HashMap<>();
 
-        listTypeExpense = typeExpenseDAO.getAllListTypeExpense();
+        listTypeExpense = typeExpenseDAO.getAllListTypeExpenseByType(Constant.TYPE.PAY);
         for (TypeExpenseDTO type : listTypeExpense) {
             if (type.getName().equals(view.getContentExpense())) {
                 type.setCheck(1);

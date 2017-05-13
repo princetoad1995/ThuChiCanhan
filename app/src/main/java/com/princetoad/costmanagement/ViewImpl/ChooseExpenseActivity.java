@@ -34,7 +34,7 @@ public class ChooseExpenseActivity extends BaseActivity implements ChooseExpense
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_expense);
 
-        setToolbar("Hạng mục thu");
+        setToolbar("Hạng mục chi");
         init();
         control();
     }

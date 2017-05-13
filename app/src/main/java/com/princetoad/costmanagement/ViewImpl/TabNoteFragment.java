@@ -125,9 +125,15 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView {
         tab_note_expense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), ChooseExpenseActivity.class);
-                i.putExtra("content_expense", txt_content_expense.getText().toString());
-                startActivityForResult(i, Constant.INTENT.REQUEST_CODE_EXPENSE);
+                if (type == Constant.TYPE.PAY){
+                    Intent i = new Intent(getContext(), ChooseExpenseActivity.class);
+                    i.putExtra("content_expense", txt_content_expense.getText().toString());
+                    startActivityForResult(i, Constant.INTENT.REQUEST_CODE_EXPENSE);
+                } else if (type == Constant.TYPE.EARN){
+                    Intent i = new Intent(getContext(), ChoosePayActivity.class);
+                    i.putExtra("content_expense", txt_content_expense.getText().toString());
+                    startActivityForResult(i, Constant.INTENT.REQUEST_CODE_EXPENSE);
+                }
             }
         });
         tab_note_date.setOnClickListener(new View.OnClickListener() {
@@ -225,9 +231,11 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView {
             if ((int) data.getSerializableExtra("type") == 1) {
                 typeExpenseDTO = (TypeExpenseDTO) data.getSerializableExtra("expense");
                 txt_content_expense.setText(typeExpenseDTO.getName());
+                expenseDTO = null;
             } else if ((int) data.getSerializableExtra("type") == 2) {
                 expenseDTO = (ExpenseDTO) data.getSerializableExtra("expense");
                 txt_content_expense.setText(expenseDTO.getName());
+                typeExpenseDTO = null;
             }
 
         }

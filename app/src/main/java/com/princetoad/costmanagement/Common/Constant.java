@@ -11,8 +11,8 @@ public class Constant {
     }
 
     public static class TYPE {
-        public static final int EARN = 1;
-        public static final int PAY = 2;
+        public static final int EARN = 2;
+        public static final int PAY = 1;
     }
 
     public static class INTENT{

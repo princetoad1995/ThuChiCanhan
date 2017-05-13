@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.princetoad.costmanagement.Common.Domain.AccountDTO;
 import com.princetoad.costmanagement.Common.Domain.ExpenseDTO;
+import com.princetoad.costmanagement.Common.Domain.TypeExpenseDTO;
 import com.princetoad.costmanagement.R;
 
 import java.util.ArrayList;
@@ -21,11 +22,11 @@ import java.util.ArrayList;
  * Created by PRINCE D. TOAD on 4/20/2017.
  */
 
-public class ListChoosePayAdapter extends ArrayAdapter<ExpenseDTO>{
+public class ListChoosePayAdapter extends ArrayAdapter<TypeExpenseDTO>{
     private Context context;
-    private ArrayList<ExpenseDTO> arr;
+    private ArrayList<TypeExpenseDTO> arr;
 
-    public ListChoosePayAdapter(@NonNull Context context, ArrayList<ExpenseDTO> arr) {
+    public ListChoosePayAdapter(@NonNull Context context, ArrayList<TypeExpenseDTO> arr) {
         super(context, R.layout.custom_list_item, arr);
         this.context = context;
         this.arr = arr;
@@ -46,17 +47,17 @@ public class ListChoosePayAdapter extends ArrayAdapter<ExpenseDTO>{
             item = inflater.inflate(R.layout.custom_list_item,null);
             viewHolder = new ListChoosePayAdapter.ViewHolder();
             viewHolder.name_pay = (TextView) item.findViewById(R.id.lblListItem);
-            viewHolder.img_check = (ImageView) item.findViewById(R.id.img_check);
+            viewHolder.img_check = (ImageView) item.findViewById(R.id.img_check_child);
             item.setTag(viewHolder);
         } else {
             viewHolder = (ListChoosePayAdapter.ViewHolder) convertView.getTag();
         }
 
-        ExpenseDTO expenseDTO = arr.get(position);
+        TypeExpenseDTO typeExpenseDTO = arr.get(position);
 
-        viewHolder.name_pay.setText(expenseDTO.getName());
+        viewHolder.name_pay.setText(typeExpenseDTO.getName());
 
-        if (expenseDTO.getCheck() == 1)
+        if (typeExpenseDTO.getCheck() == 1)
             viewHolder.img_check.setVisibility(View.VISIBLE);
         else
             viewHolder.img_check.setVisibility(View.INVISIBLE);
