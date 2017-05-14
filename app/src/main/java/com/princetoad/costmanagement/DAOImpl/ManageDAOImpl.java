@@ -60,4 +60,18 @@ public class ManageDAOImpl implements ManageDAO{
         }
         return list;
     }
+
+    @Override
+    public List<ManageDTO> getAllListByDate(String date) {
+        List<ManageDTO> list = new ArrayList<>();
+        try {
+            list = manageDAO.queryBuilder()
+                    .where()
+                    .eq(Constant.TABLE_MANAGE.MANAGE_DATE, date)
+                    .query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

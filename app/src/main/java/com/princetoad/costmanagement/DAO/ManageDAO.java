@@ -14,4 +14,6 @@ public interface ManageDAO {
     public List<ManageDTO> getAllList();
 
     public List<ManageDTO> getAllListByTypeAndDate(int type);
+
+    public List<ManageDTO> getAllListByDate(String date);
 }
