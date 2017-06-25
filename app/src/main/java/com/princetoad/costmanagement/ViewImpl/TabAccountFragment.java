@@ -81,4 +81,10 @@ public class TabAccountFragment extends BaseFragment implements TabAccountView{
             controller.reloadAccount();
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        controller.reloadAccount();
+    }
 }

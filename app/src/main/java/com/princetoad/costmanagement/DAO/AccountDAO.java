@@ -14,4 +14,6 @@ public interface AccountDAO {
     public void editAccount(AccountDTO account);
 
     public List<AccountDTO> getAllListAccounts();
+
+    public AccountDTO getAccount(String name);
 }

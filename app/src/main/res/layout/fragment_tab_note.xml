@@ -96,8 +96,7 @@
                     android:text=""
                     style="@style/style_tab_note_content_text"
                     android:layout_toLeftOf="@+id/img1"
-                    android:layout_toRightOf="@+id/txt_title1"
-                    android:gravity="end"/>
+                    android:layout_toRightOf="@+id/txt_title1" />
 
                 <ImageView
                     android:id="@+id/img1"
@@ -125,8 +124,7 @@
                     android:text=""
                     style="@style/style_tab_note_content_text"
                     android:layout_toLeftOf="@+id/img2"
-                    android:layout_toRightOf="@+id/txt_title2"
-                    android:gravity="end"/>
+                    android:layout_toRightOf="@+id/txt_title2" />
 
                 <ImageView
                     android:id="@+id/img2"

@@ -265,6 +265,9 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView {
     @Override
     public void onSuccess() {
         Toast.makeText(getContext(), "Lưu thành công", Toast.LENGTH_SHORT).show();
+        txt_input_money.setText("");
+        txt_content_expense.setText("");
+        txt_content_des.setText("");
     }
 
     @Override
@@ -281,4 +284,6 @@ public class TabNoteFragment extends BaseFragment implements TabNoteView {
     public void setAccount(AccountDTO account) {
         this.accountDTO = account;
     }
+
+
 }

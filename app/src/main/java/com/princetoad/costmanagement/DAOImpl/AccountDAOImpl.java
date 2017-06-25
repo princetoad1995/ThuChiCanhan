@@ -1,6 +1,7 @@
 package com.princetoad.costmanagement.DAOImpl;
 
 import com.j256.ormlite.dao.Dao;
+import com.princetoad.costmanagement.Common.Constant;
 import com.princetoad.costmanagement.Common.Database.DatabaseHelper;
 import com.princetoad.costmanagement.Common.Domain.AccountDTO;
 import com.princetoad.costmanagement.DAO.AccountDAO;
@@ -53,5 +54,19 @@ public class AccountDAOImpl implements AccountDAO{
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public AccountDTO getAccount(String name) {
+        List<AccountDTO> list = new ArrayList<>();
+        try {
+            list = accountDAO.queryBuilder()
+                    .where()
+                    .eq(Constant.TABLE_ACCOUNT.ACCOUNT_NAME, name)
+                    .query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list.get(0);
     }
 }

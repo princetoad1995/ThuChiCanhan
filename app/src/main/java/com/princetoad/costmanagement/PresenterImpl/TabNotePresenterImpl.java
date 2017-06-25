@@ -2,6 +2,7 @@ package com.princetoad.costmanagement.PresenterImpl;
 
 import android.util.Log;
 
+import com.princetoad.costmanagement.Common.Constant;
 import com.princetoad.costmanagement.Common.Domain.AccountDTO;
 import com.princetoad.costmanagement.Common.Domain.ExpenseDTO;
 import com.princetoad.costmanagement.Common.Domain.ManageDTO;
@@ -35,6 +36,7 @@ public class TabNotePresenterImpl implements TabNotePresenter{
         view.setUser(userDAO.getCurrentUser());
         view.setAccount(accountDAO.getAllListAccounts().get(0));
         Log.e("size manage", manageDAO.getAllList().size() + "");
+        Log.e("account", accountDAO.getAccount("Ví").getMoney() + "");
     }
 
     @Override
@@ -53,6 +55,15 @@ public class TabNotePresenterImpl implements TabNotePresenter{
             manageDTO.setDate(date);
 
             manageDAO.addManage(manageDTO);
+
+            // Cap nhat lai tien trong tai khoan
+            AccountDTO account = accountDAO.getAccount(accountDTO.getName());
+            if (type == Constant.TYPE.PAY)  // chi tien
+                account.setMoney(account.getMoney() - money);
+            else if (type == Constant.TYPE.EARN)  // thu tien
+                account.setMoney(account.getMoney() + money);
+            accountDAO.editAccount(account);
+
             view.onSuccess();
         }
     }
