@@ -38,8 +38,6 @@ public class MainPresenterImpl implements MainPresenter {
         this.expenseDAO = new ExpenseDAOImpl();
 
         createDB();
-        UserDTO user = (UserDTO) service.getObject(Constant.SHARED_PREFERENCE.REMEMBER, UserDTO.class);
-        Log.e("userID", user.getId()+"");
     }
 
     public void createDB() {
